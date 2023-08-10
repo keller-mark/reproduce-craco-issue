@@ -6,7 +6,8 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "vitessce": "3.1.1"
   },
   "overrides": {
     "autoprefixer": "10.4.4",
@@ -17,9 +18,9 @@
     "webpack": "5.88.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
