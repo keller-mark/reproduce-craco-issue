@@ -25,3 +25,7 @@ Modify `package.json` `scripts.test`:
 ```
 "test": "NODE_OPTIONS=--experimental-vm-modules craco test",
 ```
+
+
+Node version: 20.2.0
+NPM version: 9.6.6
