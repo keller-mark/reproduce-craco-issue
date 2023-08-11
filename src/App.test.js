@@ -1,8 +1,9 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import { Vitessce, FileType } from 'vitessce';
+
+console.log(Vitessce);
+
+console.log(FileType);
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(Vitessce).toBeTruthy();
 });

@@ -3,7 +3,7 @@ import { Vitessce } from "vitessce";
 import logo from './logo.svg';
 import './App.css';
 
-console.log(Vitessce);
+console.log(Vitessce)
 
 function App() {
   return (

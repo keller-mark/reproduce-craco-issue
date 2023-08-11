@@ -2,12 +2,13 @@
   "name": "bug-repro",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4",
-    "vitessce": "3.1.1"
+    "vitessce": "3.1.1",
+    "web-vitals": "^2.1.4"
   },
   "overrides": {
     "autoprefixer": "10.4.4",
@@ -18,15 +19,22 @@
     "webpack": "5.88.2"
   },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
+    "start": "npm-run-all -p watch-css start-js --max_old_space_size=8192",
+    "build": "npm-run-all build-css build-js",
+    "test": "NODE_OPTIONS=--experimental-vm-modules craco test",
+    "eject": "react-scripts eject",
+    "start-js": "craco --max_old_space_size=8192 start",
+    "build-js": "craco --max_old_space_size=8192 build",
+    "build-css": "sass -I ./src -I ./node_modules  src/:src/",
+    "watch-css": "npm run build-css && sass -I ./src -I ./node_modules src/:src/ --watch",
+    "analyze": "REACT_APP_RUN_ANALYZER=true npm run build"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
+    "extends": "react-app"
+  },
+  "jest": {
+    "transformIgnorePatterns": [
+      "node_modules/(?!(@ui5|lit-html)).*\\.js$"
     ]
   },
   "browserslist": {
@@ -45,8 +53,9 @@
     "@craco/craco": "7.1.0",
     "craco-alias": "3.0.1",
     "graphql": "15.7.2",
-    "webpack-bundle-analyzer": "4.5.0",
     "npm-run-all": "4.1.5",
-    "sass": "1.63.6"
+    "sass": "1.63.6",
+    "ts-jest": "^29.1.1",
+    "webpack-bundle-analyzer": "4.5.0"
   }
 }
