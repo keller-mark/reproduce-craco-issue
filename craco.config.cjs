@@ -11,6 +11,7 @@ module.exports = {
     plugins,
     configure: {
       module: {
+        // To fix https://github.com/vitessce/vitessce/issues/1640
         rules: [
           {
             test: /\.m?js/,
@@ -19,6 +20,15 @@ module.exports = {
             }
           },
         ],
+        // To fix https://github.com/vitessce/vitessce/issues/1674
+        // In webpack v4
+        // strictExportPresence: false,
+        // In webpack v5
+        parser: {
+          javascript: {
+            exportsPresence: false,
+          },
+        },
       },
     },
   },
